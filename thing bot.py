@@ -70,6 +70,11 @@ async def whywontitwork(ctx):
 async def abhijosh(ctx):
     await ctx.send("https://cdn.discordapp.com/attachments/931452152059154462/1005396614850023434/Screenshot_2022-08-06_at_2.17.00_PM.png")
     await ctx.send ("hottie abhijay about to rape us")
+    
+@bot.command()
+async def youropinion(ctx):
+   youropinion = ["didnt ask", "you gave the opinion", "while u gave the opinion i was doing your mom", "dont care", "ratio"]
+   await ctx.send(random.choice(youropinion))
 
     
 bot.run(token, bot=True)
