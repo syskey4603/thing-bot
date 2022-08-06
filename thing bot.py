@@ -78,6 +78,20 @@ async def youropinion(ctx):
    youropinion = ["didnt ask", "you gave the opinion", "while u gave the opinion i was doing your mom", "dont care", "ratio"]
    await ctx.send("reason why your opinion doesnt matter")
    await ctx.send(random.choice(youropinion))
+    
+@bot.command()
+async def dm (self, ctx, user: discord.member = None, *, message=None) :
+    if user is None: 
+        await ctx.send("who r u dming")
+    if user is not None:
+        if message is not None:
+            await ctx.send("what r u sending")
+        if message is not None:
+            myembed = discord.Embed()
+            myembed.add field(name=f"{ctx.author} sent you:", value=f"{message}")
+            await user.send (embed=myembed)
+
+
 
     
 bot.run(token, bot=True)
