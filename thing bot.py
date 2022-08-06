@@ -74,6 +74,7 @@ async def abhijosh(ctx):
 @bot.command()
 async def youropinion(ctx):
    youropinion = ["didnt ask", "you gave the opinion", "while u gave the opinion i was doing your mom", "dont care", "ratio"]
+   await ctx.send("reason why your opinion doesnt matter")
    await ctx.send(random.choice(youropinion))
 
     
