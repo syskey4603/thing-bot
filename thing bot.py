@@ -89,7 +89,6 @@ async def dm(user: discord.User, message):
 @commands.has_permissions(administrator=True)
 async def clean(ctx, limit: int):
         await ctx.channel.purge(limit=limit)
-        await ctx.send('Cleared by {}'.format(ctx.author.mention))
         await ctx.message.delete()
 
 @clean.error
