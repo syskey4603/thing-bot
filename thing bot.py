@@ -80,18 +80,22 @@ async def youropinion(ctx):
    await ctx.send(random.choice(youropinion))
     
 @bot.command()
-async def dm (self, ctx, user: discord.member = None, *, message=None) :
-    if user is None: 
-        await ctx.send("who r u dming")
-    if user is not None:
-        if message is not None:
-            await ctx.send("what r u sending")
-        if message is not None:
-            myembed = discord.Embed()
-            myembed.add field(name=f"{ctx.author} sent you:", value=f"{message}")
-            await user.send (embed=myembed)
+async def dm(user: discord.User, message):
+    await user.send(message)
 
 
+
+@bot.command(pass_context=True)
+@commands.has_permissions(administrator=True)
+async def clean(ctx, limit: int):
+        await ctx.channel.purge(limit=limit)
+        await ctx.send('Cleared by {}'.format(ctx.author.mention))
+        await ctx.message.delete()
+
+@clean.error
+async def clear_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("You cant do that!")
 
     
 bot.run(token, bot=True)
