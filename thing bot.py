@@ -85,7 +85,7 @@ async def dm(user: discord.User, message):
 
 
 
-@bot.command(pass_context=True)
+@bot.command(pass_context=True, aliases=['purge', 'clear'])
 @commands.has_permissions(administrator=True)
 async def clean(ctx, limit: int):
         await ctx.channel.purge(limit=limit)
