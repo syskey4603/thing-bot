@@ -68,8 +68,9 @@ async def whywontitwork(ctx):
 
 @bot.command()
 async def abhijosh(ctx):
-    await ctx.send("https://cdn.discordapp.com/attachments/931452152059154462/1005396614850023434/Screenshot_2022-08-06_at_2.17.00_PM.png")
-    await ctx.send ("hottie abhijay about to rape us")
+    abhijosh = ["https://cdn.discordapp.com/attachments/931452152059154462/1005396614850023434/Screenshot_2022-08-06_at_2.17.00_PM.png", "https://cdn.discordapp.com/attachments/1005405725964644424/1005406002323148800/Screenshot_2022-08-04_at_8.45.43_AM.png", "https://cdn.discordapp.com/attachments/1005405725964644424/1005405973160149002/unknown.png","https://cdn.discordapp.com/attachments/1005405725964644424/1005405931472965712/Screenshot_2022-08-06_at_2.52.24_PM.png" ]
+    await ctx.send("abhijosh found")
+    await ctx.send(random.choice(abhijosh))
     
 @bot.command()
 async def youropinion(ctx):
