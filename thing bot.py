@@ -68,8 +68,8 @@ async def whywontitwork(ctx):
 
 @bot.command()
 async def abhijosh(ctx):
-    ctx.send("https://cdn.discordapp.com/attachments/931452152059154462/1005396614850023434/Screenshot_2022-08-06_at_2.17.00_PM.png")
-    
+    await ctx.send("https://cdn.discordapp.com/attachments/931452152059154462/1005396614850023434/Screenshot_2022-08-06_at_2.17.00_PM.png")
+    await ctx.send ("hottie abhijay about to rape us")
 
     
 bot.run(token, bot=True)
