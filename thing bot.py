@@ -66,6 +66,10 @@ async def whywontitwork(ctx):
         print(random.choice(member))
 
 
+@bot.command()
+async def abhijosh(ctx):
+    ctx.send("https://cdn.discordapp.com/attachments/931452152059154462/1005396614850023434/Screenshot_2022-08-06_at_2.17.00_PM.png")
+    
 
     
 bot.run(token, bot=True)
