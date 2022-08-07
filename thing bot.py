@@ -124,11 +124,11 @@ async def on_message(message):
     if(trolling == True):
         if(message.author.bot):
             return
+        await message.delete()
         test = message.author
         webhook = Webhook.from_url('https://discord.com/api/webhooks/1005815714545934397/KLuiNvQDHyBwRXx9U12sD9kTuVNoXl8B8A10qMEOJIMQeyWOivEXrM8yL9UERrIZ1olt', adapter=RequestsWebhookAdapter()) # Initializing webhook
-        webhook.send(username= test.name, avatar_url="test.avatar_url", content="Hello World")
-        print(test.name)
-        print(test.avatar_url)
+        webhook.send(username= test.name, avatar_url=test.avatar_url, content= message.content)
+        
     await bot.process_commands(message)
             
     
