@@ -137,8 +137,10 @@ async def on_message(message):
     if(trolling == True):
         if(message.author.bot):
             return
+        test = message.author
         webhook = Webhook.from_url('https://discord.com/api/webhooks/1005815714545934397/KLuiNvQDHyBwRXx9U12sD9kTuVNoXl8B8A10qMEOJIMQeyWOivEXrM8yL9UERrIZ1olt', adapter=RequestsWebhookAdapter()) # Initializing webhook
-        webhook.send(username= message.author, avatar_url="http://some-image-url.here", content="Hello World")
+        webhook.send(username= test.name, avatar_url="test.avatar_url", content="Hello World")
+        print(test.name)
     await bot.process_commands(message)
             
     
