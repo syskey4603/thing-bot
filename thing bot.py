@@ -9,6 +9,7 @@ import time
 import random
 import string
 import pyjokes
+from discord import Webhook, RequestsWebhookAdapter # Importing discord.Webhook and discord.RequestsWebhookAdapter
 
 
 token = "MTAwNTE1MjgwNjUzOTM2NjQxMA.GTsuPv.-Ot3Jh8wUg19y7XtXaZkgtOkbiHn0OMAeq69sE"
@@ -17,6 +18,7 @@ intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix= ".", intents=intents)
 stoping = False
+trolling = False
 
 @bot.event
 async def on_ready():
@@ -82,6 +84,7 @@ async def youropinion(ctx):
     
 @bot.command()
 async def dm(user: discord.User, message):
+    await user.message.delete()
     await user.send(message)
 
 
@@ -97,5 +100,27 @@ async def clear_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("You cant do that!")
 
+
+@bot.command()
+async def config(ctx, args):
+    if(args == "on"):
+        global trolling
+        trolling = True
+        await ctx.send("trolling is on")
+    elif(args == "off"):
+        trolling = False
+        await ctx.send("trolling is off")
+    else:
+        await ctx.send("invalid argument")
+
+@bot.event
+async def on_message(message):
+    if(trolling == True):
+        if(message.author.bot):
+            return
+        webhook = Webhook.from_url('https://discord.com/api/webhooks/1005815714545934397/KLuiNvQDHyBwRXx9U12sD9kTuVNoXl8B8A10qMEOJIMQeyWOivEXrM8yL9UERrIZ1olt', adapter=RequestsWebhookAdapter()) # Initializing webhook
+        webhook.send(username= message.author, avatar_url="http://some-image-url.here", content="Hello World")
+    await bot.process_commands(message)
+            
     
 bot.run(token, bot=True)
