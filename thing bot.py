@@ -22,7 +22,7 @@ trolling = False
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(name="abhijosh kinda qt"))
+    await bot.change_presence(activity=discord.Game(name="test"))
     print(Fore.GREEN + f"{bot.user.name} has logged in successfully." + Fore.RESET)
 
 
@@ -99,21 +99,8 @@ async def clean(ctx, limit: int):
 async def cubescramble(ctx):
     await ctx.send("imagine not even sub 20 pb")
     str1 = ["U", "D", "R", "L", "F", "B", "U2", "D2", "R2", "L2", "F2", "B2", "M", "M2"]
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
-    await ctx.send(random.choice(str1))
+    for x in range(1, 15):
+        await ctx.send(random.choice(str1))
 @clean.error
 async def clear_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
@@ -125,10 +112,10 @@ async def config(ctx, args):
     if(args == "on"):
         global trolling
         trolling = True
-        await ctx.send("trolling is on")
+        await ctx.send("test is on")
     elif(args == "off"):
         trolling = False
-        await ctx.send("trolling is off")
+        await ctx.send("test is off")
     else:
         await ctx.send("invalid argument")
 
@@ -141,6 +128,7 @@ async def on_message(message):
         webhook = Webhook.from_url('https://discord.com/api/webhooks/1005815714545934397/KLuiNvQDHyBwRXx9U12sD9kTuVNoXl8B8A10qMEOJIMQeyWOivEXrM8yL9UERrIZ1olt', adapter=RequestsWebhookAdapter()) # Initializing webhook
         webhook.send(username= test.name, avatar_url="test.avatar_url", content="Hello World")
         print(test.name)
+        print(test.avatar_url)
     await bot.process_commands(message)
             
     
