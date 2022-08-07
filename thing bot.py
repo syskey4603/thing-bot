@@ -26,6 +26,7 @@ async def on_ready():
 
 @bot.command()
 async def startping(ctx):
+    await ctx.send("Hello @everyone This your daily dose of abhijosh")
     guild = ctx.guild
     while stoping == False:
         await guild.create_text_channel("abhijosh kinda qt")
@@ -35,7 +36,7 @@ async def on_guild_channel_create(channel):
     global stoping
     if(channel.name != ("test")):
         while stoping == False:
-            await channel.send("@everyone")
+            await channel.send("@everyone https://cdn.discordapp.com/attachments/931452152059154462/1005396614850023434/Screenshot_2022-08-06_at_2.17.00_PM.png")
 
 
 @bot.command()
