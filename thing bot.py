@@ -95,6 +95,25 @@ async def clean(ctx, limit: int):
         await ctx.channel.purge(limit=limit+1)
         await ctx.message.delete()
 
+@bot.command()
+async def cubescramble(ctx):
+    await ctx.send("imagine not even sub 20 pb")
+    str1 = ["U", "D", "R", "L", "F", "B", "U2", "D2", "R2", "L2", "F2", "B2", "M", "M2")
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
+    await ctx.send(random.choice(str1))
 @clean.error
 async def clear_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
