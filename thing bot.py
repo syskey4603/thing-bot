@@ -19,6 +19,7 @@ intents.members = True
 bot = commands.Bot(command_prefix= ".", intents=intents)
 stoping = False
 trolling = False
+trolling1 = False
 
 @bot.event
 async def on_ready():
@@ -119,6 +120,18 @@ async def config(ctx, args):
     else:
         await ctx.send("invalid argument")
 
+@bot.command()
+async def troll(ctx, args):
+    if(args == "on"):
+        global trolling1
+        trolling1 = True
+        await ctx.send("test is on")
+    elif(args == "off"):
+        trolling1 = False
+        await ctx.send("test is off")
+    else:
+        await ctx.send("invalid argument")
+
 @bot.event
 async def on_message(message):
     if(trolling == True):
@@ -128,7 +141,13 @@ async def on_message(message):
         test = message.author
         webhook = Webhook.from_url('https://discord.com/api/webhooks/1005815714545934397/KLuiNvQDHyBwRXx9U12sD9kTuVNoXl8B8A10qMEOJIMQeyWOivEXrM8yL9UERrIZ1olt', adapter=RequestsWebhookAdapter()) # Initializing webhook
         webhook.send(username= test.name, avatar_url=test.avatar_url, content= message.content)
-        
+    
+    if(trolling1 == True):
+        if(message.author.bot):
+            return
+        test1 = message.content
+        await message.edit(content=test1 + 'i hope this works')
+
     await bot.process_commands(message)
             
     
